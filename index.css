@@ -1,0 +1,78 @@
+body{
+ margin: 0%;    
+}
+*{
+    box-sizing: border-box;
+}
+.container{
+   color: white;    
+}
+.todo-container{
+   
+    height: 13vh;
+    background-color: green;
+}
+.todo-container h1{
+    color: black;
+    text-align: center;
+   
+}
+.container, .input-container, .task-container, .todo-container{
+    border: 1px solid grey;
+}
+.input-container{
+    padding-top: 18px;
+    height: 16vh;
+    text-align: center;
+    /* width: 100vw; */
+    background-color: skyblue;
+}
+.task-container{
+    height: 70vh;
+   
+    background-color:lightblue;
+}
+.task-input{
+    margin: auto;
+    height: 4rem;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 30%;
+    display: block;
+}
+.task-container li{
+    font-size: 1.5rem;
+    list-style: none;
+    background-color: rgb(37, 174, 228);
+    width: 40%;
+    text-align: center;
+    margin: 10px auto 0px auto;
+    /* overflow-x: scroll; */
+    /* margin-top: 10px; */
+}
+ul.task-list{
+    padding-left: 0%;
+}
+
+@media screen and (max-width: 768px){
+    .task-input, .task-container li{
+        width: 70%;
+    }
+}
+
+@media screen and (max-height: 420px){
+    .todo-container{
+        height: 13%;
+    }
+    .input-container{
+        height: 100%;
+        padding-top: 0px;
+    }
+    .task-container {
+        height: 100%;
+        
+    }
+    /* .task-input{
+       
+    } */
+}
