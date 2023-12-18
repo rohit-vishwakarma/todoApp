@@ -1,27 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <script>
+      !(function () {
+        var analytics = (window.analytics = window.analytics || []);
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error("Segment snippet included twice.");
+          else {
+            analytics.invoked = !0;
+            analytics.methods = [
+              "trackSubmit",
+              "trackClick",
+              "trackLink",
+              "trackForm",
+              "pageview",
+              "identify",
+              "reset",
+              "group",
+              "track",
+              "ready",
+              "alias",
+              "debug",
+              "page",
+              "screen",
+              "once",
+              "off",
+              "on",
+              "addSourceMiddleware",
+              "addIntegrationMiddleware",
+              "setAnonymousId",
+              "addDestinationMiddleware",
+              "register",
+            ];
+            analytics.factory = function (e) {
+              return function () {
+                if (window.analytics.initialized)
+                  return window.analytics[e].apply(window.analytics, arguments);
+                var i = Array.prototype.slice.call(arguments);
+                if (
+                  [
+                    "track",
+                    "screen",
+                    "alias",
+                    "group",
+                    "page",
+                    "identify",
+                  ].indexOf(e) > -1
+                ) {
+                  var c = document.querySelector("link[rel='canonical']");
+                  i.push({
+                    __t: "bpc",
+                    c: (c && c.getAttribute("href")) || void 0,
+                    p: location.pathname,
+                    u: location.href,
+                    s: location.search,
+                    t: document.title,
+                    r: document.referrer,
+                  });
+                }
+                i.unshift(e);
+                analytics.push(i);
+                return analytics;
+              };
+            };
+            for (var i = 0; i < analytics.methods.length; i++) {
+              var key = analytics.methods[i];
+              analytics[key] = analytics.factory(key);
+            }
+            analytics.load = function (key, i) {
+              var t = document.createElement("script");
+              t.type = "text/javascript";
+              t.async = !0;
+              t.src =
+                "https://cdn.segment.com/analytics.js/v1/" +
+                key +
+                "/analytics.min.js";
+              var n = document.getElementsByTagName("script")[0];
+              n.parentNode.insertBefore(t, n);
+              analytics._loadOptions = i;
+            };
+            analytics._writeKey = "rjGoYvCsrlTyRQ1br6G0Id5wSSa9NA5k";
+            analytics.SNIPPET_VERSION = "5.2.0";
+            analytics.load("rjGoYvCsrlTyRQ1br6G0Id5wSSa9NA5k");
+            analytics.page();
+          }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <link rel="stylesheet" href="index.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="todo-container"><h1>My ToDo List</h1></div>
-        <div class="input-container">
-            <input type="text" class="task-input" />
-        </div>
-        <div class="task-container">
-            <ul class="task-list">
-                <!-- adding list tag -->
-            </ul>
-        </div>
+      <div class="todo-container">
+        <h1>My ToDo List</h1>
+      </div>
+      <div class="input-container">
+        <input type="text" class="task-input" />
+      </div>
+      <div class="task-container">
+        <ul class="task-list">
+          <!-- adding list tag -->
+        </ul>
+      </div>
     </div>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
